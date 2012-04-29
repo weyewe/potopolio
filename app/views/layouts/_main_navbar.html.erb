@@ -1,0 +1,36 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <%= link_to "potoSchool", root_url, :class => "brand" %>
+      <!-- <a class="brand" href="#">potoSchool</a> -->
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><%= link_to "Home", root_url %></li>
+          
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+
+        <ul class="nav pull-right">
+          <li class="dropdown" id="fat-menu">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.email%><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Setting", edit_credential_url %></li>
+              <!-- <li><a href="#">Profile</a></li> -->
+              <li class="divider"></li>
+              <li><%= link_to "Logout", destroy_user_session_url %></li>
+            </ul>
+          </li>
+        </ul>
+
+
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

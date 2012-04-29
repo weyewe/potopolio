@@ -1,0 +1,18 @@
+.loading-indicator {
+	height: 80px;
+	width: 80px;
+/*  background:url( <%= asset_path 'tag_hotspot_on_62x62.png' %>);*/
+<% if Rails.env.development? %>
+  background: url( <%= asset_path 'loading.gif' %> );
+<% elsif Rails.env.production? %>
+  background: url( <%= SHOWLOADING_LOADER_URL %> );
+<% end %>
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.loading-indicator-overlay {
+	background-color: #FFFFFF;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
