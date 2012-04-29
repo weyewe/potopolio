@@ -6,27 +6,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to "potoSchool", root_url, :class => "brand" %>
+      <%= link_to "potoPolio", root_url, :class => "brand" %>
       <!-- <a class="brand" href="#">potoSchool</a> -->
       <div class="nav-collapse">
-        <ul class="nav">
-          <li class="active"><%= link_to "Home", root_url %></li>
-          
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <% if not current_user %>
+          <ul class="nav">
+            <!-- <li class="active"><a href="#about">Home</a></li> -->
+            <% if params[:controller] == "home" && params[:action] == "welcome" %>
+            <li class="active"><a href="#about">Home</a></li>
+            <% end %>
+            <li>
+              <%= link_to "Log In", new_user_session_url %>
+            </li>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_url %>
+              <!-- <a href="#contact">Sign Up</a> -->
+            </li>
+          </ul>
+        <% end %>
 
 
         <ul class="nav pull-right">
+          <% if current_user %>
           <li class="dropdown" id="fat-menu">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.email%><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Setting", edit_credential_url %></li>
+              <li><%#= link_to "Setting", edit_credential_url %></li>
               <!-- <li><a href="#">Profile</a></li> -->
               <li class="divider"></li>
               <li><%= link_to "Logout", destroy_user_session_url %></li>
             </ul>
           </li>
+          <% end %>
         </ul>
 
 

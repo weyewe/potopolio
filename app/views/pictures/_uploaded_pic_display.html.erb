@@ -1,0 +1,11 @@
+<li class="span3">
+  <div class="thumbnail">
+    <%= link_to  picture_url(  picture  ),
+        :class => "thumbnail" , :style => "height:160px; overflow:hidden;" do %>
+      <%= image_tag picture.get_icon("index") %>
+    <% end %>
+  </div>
+</li>
+
+
+

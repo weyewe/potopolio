@@ -1,5 +1,20 @@
 Potopolio::Application.routes.draw do
-  devise_for :users
+  devise_for :users #, :controllers => {:registrations => "registrations"}
+  
+  
+  
+  match 'dashboard'           => 'home#dashboard'  , :as => :dashboard
+  match 'new_user_sign_up' => "home#new_user_sign_up", :as => :new_user_sign_up
+  root :to => 'home#welcome'
+  
+  resources :users do
+    resources :pictures
+    resources :galleries 
+  end
+  resources :pictures 
+  resources :galleries do
+    resources :pictures
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
