@@ -65,3 +65,9 @@ FILEICON_URL= {
 }
 
 
+
+PIC_UPLOAD_TYPE = {
+  :basic => 1 , 
+  :gallery => 2 , 
+  :forum_post => 3 
+}

@@ -15,6 +15,8 @@ Potopolio::Application.routes.draw do
   resources :galleries do
     resources :pictures
   end
+  
+  match 'add_pics_to_gallery/:gallery_id' => "pictures#add_pics_to_gallery", :as => :add_pics_to_gallery 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

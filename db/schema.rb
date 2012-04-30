@@ -31,14 +31,18 @@ ActiveRecord::Schema.define(:version => 20120429172121) do
   create_table "pictures", :force => true do |t|
     t.integer  "user_id"
     t.integer  "gallery_id"
+    t.integer  "forum_post_id"
+    t.integer  "pic_upload_type",       :default => 1
     t.string   "name"
     t.integer  "project_submission_id"
     t.string   "original_image_url"
     t.string   "index_image_url"
     t.string   "display_image_url"
+    t.string   "revision_image_url"
     t.integer  "original_image_size"
     t.integer  "index_image_size"
     t.integer  "display_image_size"
+    t.string   "revision_image_size"
     t.boolean  "is_deleted",            :default => false
     t.string   "doc_id"
     t.string   "doc_access_key"

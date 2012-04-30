@@ -4,6 +4,9 @@ class CreatePictures < ActiveRecord::Migration
       
       t.integer :user_id 
       t.integer :gallery_id 
+      t.integer :forum_post_id
+      
+      t.integer :pic_upload_type, :default => PIC_UPLOAD_TYPE[:basic] 
       
       
       t.string   :name
@@ -12,13 +15,13 @@ class CreatePictures < ActiveRecord::Migration
       t.string   :original_image_url
       # for displaying the uploaded file
       t.string   :index_image_url
-      
-      
       t.string   :display_image_url
+      t.string   :revision_image_url
       
       t.integer  :original_image_size
       t.integer  :index_image_size
       t.integer  :display_image_size
+      t.string   :revision_image_size
       
       t.boolean  :is_deleted,            :default => false
       

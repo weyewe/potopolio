@@ -11,13 +11,6 @@ class PicturesController < ApplicationController
   
   def create
     
-    # @project_submission = ProjectSubmission.find_by_id(params[:project_submission_id])
-    # if @project_submission.user_id != current_user.id
-    #       redirect_to root_url
-    #       return
-    #     end
-    
-    
     new_picture = ""
     if not params[:transloadit].nil? and not params[:picture_filetype].nil?
       if params[:picture_filetype].to_i ==  PICTURE_FILETYPE[:image]  
@@ -27,7 +20,8 @@ class PicturesController < ApplicationController
           params[:transloadit][:results][:resize_index], 
           params[:transloadit][:results][:resize_show], 
           params[:transloadit][:results][:resize_revision], 
-          params, params[:transloadit][:uploads] )
+          params, params[:transloadit][:uploads], PIC_UPLOAD_TYPE[:basic], current_user, nil )
+          
       elsif params[:picture_filetype].to_i !=  PICTURE_FILETYPE[:image]  
         puts "Yeah baby, we are inside the scribd\n"*10
         new_picture = Picture.extract_scribd_upload( 
@@ -51,6 +45,13 @@ class PicturesController < ApplicationController
     #     end
     
     redirect_to new_picture_url 
+  end
+  
+  
+  def add_pics_to_gallery
+    @gallery = Gallery.find_by_id params[:gallery_id]
+    @pictures = @gallery.pictures.order("created_at DESC")
+    @new_picture = Picture.new 
   end
   
   

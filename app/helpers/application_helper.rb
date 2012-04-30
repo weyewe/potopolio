@@ -240,17 +240,13 @@ module ApplicationHelper
             :action => "new"
           },
           {
-            :controller =>"pictures",
-            :action => "xx"
-          },
-          {
             :controller => "pictures",
-            :action => "xx"
+            :action => "add_pics_to_gallery"
           }
         ]
       },
       {
-        :title =>"Edit Gallery",
+        :title =>"Edit Gallery Details",
         :destination_link => "root_url",
         :conditions => [
           {

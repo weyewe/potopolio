@@ -16,7 +16,7 @@
 
 
 
-var PilipotoJcropApi ;   /* global variable  */
+/*var PilipotoJcropApi ; */  /* global variable  */
 
 
 
